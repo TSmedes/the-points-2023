@@ -19,10 +19,12 @@ public:
     Point(double x , double y );
     string ToString()const;
     double Distance(const Point& point);
+    double DistanceToLine(const Point& a, const Point& b);
     double GetX()const;
     double GetY()const;
     void Write(ostream& output)const;
     void Read(istream& input);
+
 };
 
 

@@ -27,6 +27,12 @@ string Point::ToString() const {
 double Point::Distance(const Point &point) {
     return sqrt(pow(_x - point._x, 2.0) + pow(_y - point._y, 2.0));
 }
+double Point::DistanceToLine(const Point& a, const Point& b){
+    double slope = (b.GetY() - a.GetY()) / (b.GetX() - a.GetX());
+    double c = b.GetY() - slope * b.GetX();
+    double distance = abs(slope * GetX() + GetY() + c);
+    return distance / sqrt(slope * slope + 1);
+}
 
 double Point::GetX() const {
     return _x;
