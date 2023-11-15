@@ -30,7 +30,7 @@ double Point::Distance(const Point &point) {
 double Point::DistanceToLine(const Point& a, const Point& b){
     double slope = (b.GetY() - a.GetY()) / (b.GetX() - a.GetX());
     double c = b.GetY() - slope * b.GetX();
-    double distance = abs(slope * GetX() + GetY() + c);
+    double distance = abs(slope * GetX() - GetY() + c);
     return distance / sqrt(slope * slope + 1);
 }
 

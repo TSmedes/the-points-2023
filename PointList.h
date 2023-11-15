@@ -7,6 +7,9 @@
 
 #include "point.h"
 
+#include <vector>
+using std::vector;
+
 
 class PointList {
 private:
@@ -17,15 +20,18 @@ private:
 public:
     PointList(int size);
     ~PointList();
+    PointList(const PointList& copyList);
     PointList& operator=(const PointList& copyList);
     void Read(istream& input);
     void Write(ostream& output);
+    bool Equals(Point* a, Point* b);
     void Delete(Point* delPoint);
     void ClosestPoints(Point& a, Point& b);
+    void FarthestPoints(Point& a, Point& b);
     double CrossProduct(const Point& a, const Point& b, const Point& c);
     string ToString();
-    double FindPerimeterConvexHull();
-    Point ConvexHull(PointList section, Point* a, Point* b);
+    vector<Point> FindPointsConvexHull();
+    void ConvexHull(const PointList& section, Point* a, Point* b, vector<Point>& convexPoints);
 };
 
 
